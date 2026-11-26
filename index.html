@@ -1,0 +1,192 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Balcão Virtual Administração</title>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Source+Serif+4:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+<a class="skip" href="#main">Ir para o conteúdo</a>
+
+<header class="top" id="top">
+  <div class="wrap top-in">
+    <a class="brand" href="#top" aria-label="Início">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="8 116 431 215" width="56" height="28" fill="currentColor"><path d="M10 223.5L115 119l45 45-59.5 59.5L160 283l-45 45z"/><path d="M122 118h203L223.5 219.5z"/><path d="M223.5 227.5L325 329H122z"/><path d="M437 223.5L332 119l-45 45 59.5 59.5L287 283l45 45z"/></svg>
+      </span>
+      <span class="brand-t"><strong>Balcão Virtual da Coordenação</strong><small>do Curso de Administração</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#como">Como funciona</a>
+      <a href="#assuntos">Assuntos</a>
+      <a href="#prazos">Prazos</a>
+      <a href="#modelos">Modelos</a>
+      <a href="#contato" class="nav-cta">Fale com a coordenação</a>
+    </nav>
+    <button class="icon-btn" id="theme" type="button" aria-label="Alternar tema claro e escuro" title="Tema">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
+    </button>
+    <button class="icon-btn burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+<section class="steps" id="como" aria-labelledby="como-t">
+  <div class="wrap steps-in">
+    <h2 id="como-t">Como funciona</h2>
+    <ol class="steps-grid">
+      <li class="step"><span aria-hidden="true">1</span><div><strong>Pergunte</strong><p>Escreva sua dúvida ou toque em um assunto.</p></div></li>
+      <li class="step"><span aria-hidden="true">2</span><div><strong>Confira a fonte</strong><p>Cada resposta indica o documento usado.</p></div></li>
+      <li class="step"><span aria-hidden="true">3</span><div><strong>Fale com a coordenação</strong><p>Se precisar de análise, escreva por e-mail.</p></div></li>
+    </ol>
+  </div>
+</section>
+<section class="hero">
+  <div class="blob b1" aria-hidden="true"></div>
+  <div class="blob b2" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <div class="hero-copy reveal">
+      <!-- Selo dos 20 anos: trocar o conteúdo de .selo-arte pela arte oficial (<img>) -->
+      <div class="selo">
+        <span class="selo-arte" aria-hidden="true"><b>20</b><small>anos</small></span>
+        <span class="selo-t"><strong>20 anos do Curso de Administração</strong><small>UFPI · Picos</small></span>
+      </div>
+      <span class="pill">UFPI · Campus Senador Helvídio Nunes de Barros · Picos</span>
+      <h1>Suas dúvidas do curso, <em>respondidas na hora.</em></h1>
+      <p class="lead">Pergunte sobre matrícula, estágio, TCC, atividades complementares e prazos. As respostas vêm dos documentos oficiais e sempre mostram a fonte.</p>
+      <div class="stats" id="stats">
+        <div><b data-count="14">0</b><span>assuntos</span></div>
+        <div><b data-count="11">0</b><span>prazos</span></div>
+        <div><b data-count="6">0</b><span>documentos</span></div>
+      </div>
+    </div>
+
+    <div class="chat reveal" id="chat" role="region" aria-label="Assistente virtual">
+      <div class="chat-head">
+        <span class="dot" aria-hidden="true"></span>
+        <div><strong>Assistente do Balcão</strong><small>Responde com base nos documentos do curso</small></div>
+        <button type="button" class="ghost" id="clear" title="Limpar conversa">Limpar</button>
+      </div>
+      <div class="msgs" id="msgs" aria-live="polite"></div>
+      <div class="chips" id="chips"></div>
+      <form class="composer" id="form" autocomplete="off">
+        <label for="q" class="sr">Escreva sua dúvida</label>
+        <input id="q" type="text" placeholder="Ex.: quando é o ajuste de matrícula?" maxlength="200">
+        <button type="submit" aria-label="Enviar">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="wrap sec" id="assuntos">
+  <div class="sec-head reveal">
+    <h2>Assuntos</h2>
+    <p>Escolha um tema para ver a resposta completa ou busque pelo nome.</p>
+  </div>
+  <div class="search reveal">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+    <label for="filter" class="sr">Buscar assunto</label>
+    <input id="filter" type="search" placeholder="Buscar assunto (ex.: estágio, bolsa, TCC)">
+  </div>
+  <div class="grid" id="grid"></div>
+  <p class="empty" id="empty" hidden>Nenhum assunto encontrado. Tente outra palavra ou escreva para a coordenação.</p>
+</section>
+
+<section class="wrap sec" id="prazos">
+  <div class="sec-head reveal">
+    <h2>Calendário e prazos</h2>
+    <p>Datas da Resolução CEPEX/UFPI nº 1.086, de 12/11/2026 (períodos 2027.1 e 2027.2). A coordenação deve conferi-las antes de publicar. <a href="Calendario_Academico_Res_CEPEX_1086_2026.pdf" download>Baixar o calendário em PDF</a></p>
+  </div>
+  <div class="next reveal" id="next"></div>
+  <ol class="timeline" id="timeline"></ol>
+</section>
+
+<section class="wrap sec" id="modelos">
+  <div class="sec-head reveal">
+    <h2>Modelos e manuais</h2>
+    <p>Baixe o calendário acadêmico, o Regulamento Geral da Graduação, o Regimento do Campus, as orientações de estágio e os documentos do Trabalho de Conclusão de Curso II.</p>
+  </div>
+  <div class="cards2">
+    <a class="dl reveal" href="https://ufpi.br/cge" target="_blank" rel="noopener">
+      <span class="dl-i"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6 M20 4l-9 9 M18 14v6H4V6h6"/></svg></span>
+      <span><strong>Coordenadoria Geral de Estágio (CGE/UFPI)</strong><small>Site oficial: ufpi.br/cge</small></span>
+      <span class="dl-a" aria-hidden="true">Abrir ↗</span>
+    </a>
+    <a class="dl reveal" href="Orientacoes_de_Estagio_Administracao.pdf" download>
+      <span class="dl-i"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16v11H4z M9 8V5h6v3 M4 13h16"/></svg></span>
+      <span><strong>Estágio: orientações para os discentes</strong><small>Coordenação de Estágio do curso, 2027 (.pdf)</small></span>
+      <span class="dl-a" aria-hidden="true">Baixar ↓</span>
+    </a>
+    <a class="dl reveal" href="Regimento_Interno_CSHNB.pdf" download>
+      <span class="dl-i"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h7"/></svg></span>
+      <span><strong>Regimento Interno do Campus (CSHNB)</strong><small>Resolução CONSUN/UFPI nº 94/2022 (.pdf)</small></span>
+      <span class="dl-a" aria-hidden="true">Baixar ↓</span>
+    </a>
+    <a class="dl reveal" href="Regulamento_Geral_Graduacao_UFPI.pdf" download>
+      <span class="dl-i"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h7"/></svg></span>
+      <span><strong>Regulamento Geral da Graduação (UFPI)</strong><small>Documento (.pdf)</small></span>
+      <span class="dl-a" aria-hidden="true">Baixar ↓</span>
+    </a>
+    <a class="dl reveal" href="Calendario_Academico_Res_CEPEX_1086_2026.pdf" download>
+      <span class="dl-i"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v14H4z M4 10h16 M8 3v4 M16 3v4"/></svg></span>
+      <span><strong>Calendário Acadêmico 2027.1 e 2027.2</strong><small>Resolução CEPEX/UFPI nº 1.086/2026 (.pdf)</small></span>
+      <span class="dl-a" aria-hidden="true">Baixar ↓</span>
+    </a>
+    <a class="dl reveal" href="Termo_de_Aceite_TCC_II.docx" download>
+      <span class="dl-i"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h7"/></svg></span>
+      <span><strong>Termo de Aceite para Orientação de TCC II</strong><small>Documento Word (.docx)</small></span>
+      <span class="dl-a" aria-hidden="true">Baixar ↓</span>
+    </a>
+    <a class="dl reveal" href="Manual_de_TCC_II_artigo.docx" download>
+      <span class="dl-i"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h10a3 3 0 013 3v13H8a3 3 0 01-3-3z"/><path d="M8 4v13"/></svg></span>
+      <span><strong>Manual de formatação do TCC II (artigo)</strong><small>Documento Word (.docx)</small></span>
+      <span class="dl-a" aria-hidden="true">Baixar ↓</span>
+    </a>
+  </div>
+</section>
+
+<section class="wrap sec" id="contato">
+  <div class="contact reveal">
+    <div>
+      <h2>Fale com a coordenação</h2>
+      <p>Para casos que o assistente não resolve, escreva para a coordenação.</p>
+    </div>
+    <div class="mail">
+      <a id="mail" href="mailto:coordenacaoadmpicos@ufpi.edu.br">coordenacaoadmpicos@ufpi.edu.br</a>
+      <button type="button" class="ghost" id="copy">Copiar e-mail</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <span>Balcão Virtual criado em comemoração aos 20 anos do Curso de Administração.</span>
+    <span>Protótipo sem vínculo oficial.</span>
+    <span>Desenvolvido por Professora Dra. Janayna Arruda Barroso</span>
+    <span><a href="https://ufpi.br/politica-da-ufpi-lgpd" target="_blank" rel="noopener">Tratamento de dados (LGPD): Política da UFPI ↗</a></span>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="Voltar ao topo">↑</button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<dialog id="dlg" class="dlg" aria-labelledby="dlg-t">
+  <div class="dlg-in">
+    <div class="dlg-h"><h3 id="dlg-t"></h3><button type="button" class="icon-btn" id="dlg-x" aria-label="Fechar">✕</button></div>
+    <div class="dlg-b" id="dlg-b"></div>
+    <div class="dlg-f"><button type="button" class="ghost" id="dlg-copy">Copiar resposta</button><button type="button" class="solid" id="dlg-ask">Perguntar no chat</button></div>
+  </div>
+</dialog>
+
+<script src="data.js"></script>
+<script src="calendario.js"></script>
+<script src="regimento.js"></script>
+<script src="estagio.js"></script>
+<script src="script.js"></script>
+<script src="baixar.js"></script>
+
+
+</body></html>
